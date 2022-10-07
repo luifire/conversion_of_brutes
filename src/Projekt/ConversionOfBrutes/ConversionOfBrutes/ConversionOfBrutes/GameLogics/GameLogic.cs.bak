@@ -1,0 +1,257 @@
+﻿using System;
+using System.Collections.Generic;
+using ConversionOfBrutes.GameObjects;
+using ConversionOfBrutes.Graphic.Screen;
+using ConversionOfBrutes.Misc;
+
+// Authors: buerklij
+
+namespace ConversionOfBrutes.GameLogics
+{
+	sealed class GameLogic
+	{
+		private double mAtlantisWinPoints;
+		private double mBarbWinPoints;
+		private int mAtlantisContingent;
+		private int mBarbContingent;
+		private List<Zone> mZones;
+
+		public GameLogic()
+		{
+			mAtlantisWinPoints = 200;
+			mBarbWinPoints = 200;
+
+			mAtlantisContingent = 200;
+			mBarbContingent = 400;
+
+			// save all zones
+			mZones = new List<Zone>();
+			foreach (var obj in GameScreen.ObjectManager.MapObjects)
+			{
+				if (obj is Zone)
+					mZones.Add((Zone)obj);
+			}
+		}
+		public void Update()
+		{
+			HandleZones();
+			UpdateSpawn();
+		}
+
+		private void HandleZones()
+		{
+			double winPointGain = Main.GameTime.ElapsedGameTime.Milliseconds*0.01;
+
+			foreach (var zone in mZones)
+			{
+				var multiplier = 0;
+				var objectsInZone = GameScreen.Map.GetObjects(zone.Rect);
+
+				foreach (var gameObj in objectsInZone)
+				{
+					if (gameObj is Unit)
+					{
+						Unit unit = (Unit) gameObj;
+
+						if (unit.Fraction == Fraction.Player)
+						{
+							// true -> there is at least one Ai-unit in the Zone. Capturing impossible
+							if (multiplier < 0)
+							{
+								multiplier = 0;
+								break;
+							}
+							multiplier++;
+						}
+						else
+						{
+							// true -> there is at least one player-unit in the Zone. Capturing impossible
+							if (multiplier > 0)
+							{
+								multiplier = 0;
+								break;
+							}
+							multiplier--;
+						}
+					}
+				}
+
+				zone.FractionPoints += multiplier * Main.GameTime.ElapsedGameTime.Milliseconds * 0.01;
+				if (zone.FractionPoints >= 500)
+				{
+					zone.FractionPoints = 500;
+					zone.Fraction = Fraction.Player;
+					mAtlantisWinPoints += winPointGain;
+				}
+				else if (zone.FractionPoints <= 50 && zone.FractionPoints >= -50)
+				{
+					zone.Fraction = Fraction.Gaia;
+				}
+				else if (zone.FractionPoints <= -500)
+				{
+					zone.FractionPoints = -500;
+					zone.Fraction = Fraction.Ai;
+					mBarbWinPoints += winPointGain;
+				}
+			}
+		}
+
+		private void UpdateSpawn()
+		{
+
+			foreach (var zone in mZones)
+			{
+				if (!(zone is SpawnZone) || ((SpawnZone) zone).SpawnJobs.Count == 0)
+					continue;
+
+
+				var spawnJob = ((SpawnZone) zone).SpawnJobs.First.Value;
+				spawnJob.TimeRemaining -= Main.GameTime.ElapsedGameTime.Milliseconds;
+
+				if (spawnJob.TimeRemaining <= 0)
+				{
+					Unit u = (Unit)GameScreen.ObjectManager.CreateWorldObject(spawnJob.UnitIdent, spawnJob.SpawnZone.Position, spawnJob.UnitFraction);
+					u.WalkToPosition(spawnJob.SpawnZone.UnitDestination, spawnJob.SpawnZone.ObjectNumber);
+
+					((SpawnZone)zone).SpawnJobs.RemoveFirst();
+				}
+			}
+		}
+
+		/// <summary>
+		/// Adds a Unit to the spawn queue
+		/// </summary>
+		/// <param name="unitToSpawn"></param>
+		/// <param name="spawnZone"></param>
+		/// <param name="fraction"></param>
+		/// <returns></returns>
+		public void SpawnUnit(Ident unitToSpawn, SpawnZone spawnZone, Fraction fraction)
+		{
+			double points=0;
+			int cont = 0;
+			switch(fraction)
+			{
+				case Fraction.Player:
+					points = mAtlantisWinPoints;
+					cont = mAtlantisContingent;
+					break;
+				case Fraction.Ai:
+					points = mBarbWinPoints;
+					cont = mBarbContingent;
+					break;
+			}
+
+			if (spawnZone.SpawnJobs.Count >= 21 || cont == 0)
+				return;
+
+
+			int time = GetTimeCost(unitToSpawn);
+			int winPointCost = GetWinPointCost(unitToSpawn);
+
+			if (points - winPointCost < 0)
+				return;
+
+			spawnZone.SpawnJobs.AddLast(new SpawnJob(time, winPointCost, spawnZone, unitToSpawn, fraction));
+
+			switch (fraction)
+			{
+				case Fraction.Player:
+					mAtlantisWinPoints -= winPointCost;
+					GameScreen.GameStatistic.WinPointsLost -= winPointCost;
+					mAtlantisContingent--;
+					break;
+				case Fraction.Ai:
+					mBarbWinPoints -= winPointCost;
+					mBarbContingent--;
+					break;
+			}
+		}
+
+		public int GetTimeCost(Ident unitToSpawn)
+		{
+			return 0;
+			switch (unitToSpawn)
+			{
+				//Atlantic
+				case Ident.ShieldGuard:
+					return 30;
+				case Ident.Priest:
+					return 10;
+				case Ident.PriestRanged:
+					return 10;
+				case Ident.EliteAtlantic:
+					return 50;
+
+				//Barbarian
+				case Ident.EliteBarbarian:
+					return 60;
+				case Ident.Archer:
+					return 10;
+				case Ident.ArcherMounted:
+					return 25;
+				case Ident.Axeman:
+					return 10;
+				case Ident.Knight:
+					return 30;
+
+				default:
+					throw new ArgumentOutOfRangeException("unitToSpawn", unitToSpawn, null);
+			}
+		}
+
+		private int GetWinPointCost(Ident unitToSpawn)
+		{
+			switch (unitToSpawn)
+			{
+				//Atlantic
+				case Ident.ShieldGuard:
+					return 100;
+				case Ident.Priest:
+					return 40;
+				case Ident.PriestRanged:
+					return 30;
+				case Ident.EliteAtlantic:
+					return 150;
+
+				//Barbarian
+				case Ident.EliteBarbarian:
+					return 200;
+				case Ident.Archer:
+					return 30;
+				case Ident.ArcherMounted:
+					return 90;
+				case Ident.Axeman:
+					return 50;
+				case Ident.Knight:
+					return 100;
+
+				default:
+					throw new ArgumentOutOfRangeException("unitToSpawn", unitToSpawn, null);
+			}
+		}
+
+		public void CancelSpawn(SpawnJob job)
+		{
+			switch (job.UnitFraction)
+			{
+				case Fraction.Ai:
+					mBarbWinPoints += job.Cost;
+					mBarbContingent++;
+					break;
+				case Fraction.Player:
+					mAtlantisWinPoints += job.Cost;
+					mAtlantisContingent++;
+					break;
+			}
+			job.SpawnZone.SpawnJobs.Remove(job);
+			GameScreen.GameStatistic.RecruitedUnits--;
+		}
+
+
+		public double BarbPoints { get { return mBarbWinPoints; } }
+		public double AtlantisPoints { get { return mAtlantisWinPoints; } }
+		public int AtlantisContingent { get { return mAtlantisContingent;} }
+		public int BarbContingent { get { return mBarbContingent; } }
+		public List<Zone> Zones { get { return mZones; } set { mZones = value; } }
+	}
+}

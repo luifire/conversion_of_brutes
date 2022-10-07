@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ConversionOfBrutes.Graphic.MenuElements.LoadComponent">
+    <Position X="6.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARQAAAAAAAgAwAAAABEQAAAAAAAQAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Graphic\MenuElements\LoadComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.AchievementScreen">
+    <Position X="31.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABAAAAIAAwAAAAAAAIAAAAAAAAEAAAAAAIAAAAA=</HashCode>
+      <FileName>Graphic\Screen\AchievementScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.ConfirmationScreen">
+    <Position X="2" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAAAAIAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAEAAAE=</HashCode>
+      <FileName>Graphic\Screen\ConfirmationScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.CreditsScreen">
+    <Position X="8.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphic\Screen\CreditsScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.DefeatAndVictoryScreen">
+    <Position X="13.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAACAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphic\Screen\DefeatAndVictoryScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.GameScreen">
+    <Position X="17.75" Y="8" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ConversionOfBrutes.Graphic.Screen.GameScreen.GameSaveInformation" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Graphic\Screen\GameScreen.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>C2SSBEgCIBEIEwAAAMA4CAAAEUAAIAEQoIAABGAREAk=</HashCode>
+      <FileName>Graphic\Screen\GameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.HotkeyScreen">
+    <Position X="20" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAAAAAwQAAACAAAAAgAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Graphic\Screen\HotkeyScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.Hud">
+    <Position X="22.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQYCAQAgAYADDyAAgAAAUAQQAAKCQAhAAAABACIQAQA=</HashCode>
+      <FileName>Graphic\Screen\Hud.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mMiniMap" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="mActionButtons" />
+      <Field Name="mThumbNails" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.InGameMenuScreen">
+    <Position X="26.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphic\Screen\InGameMenuScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.InGameOptionsScreen">
+    <Position X="4.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphic\Screen\InGameOptionsScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.LoadScreen">
+    <Position X="29" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphic\Screen\LoadScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.MainMenuScreen">
+    <Position X="33.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphic\Screen\MainMenuScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.OptionScreen">
+    <Position X="4.5" Y="8" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ConversionOfBrutes.Graphic.Screen.OptionScreen.Settings" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Graphic\Screen\OptionScreen.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QAQEMgAAAAABAwAAQAAIQAAAAAAAAIAAJAAgAgAAQAA=</HashCode>
+      <FileName>Graphic\Screen\OptionScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.PreGameScreen">
+    <Position X="11" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAQAAAAAAA4AAQAAAAIgAAACAAAgACAABBAABCAA=</HashCode>
+      <FileName>Graphic\Screen\PreGameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.SaveLoadScreen">
+    <Position X="15.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAIAAAAI4AAUAAAAQAAAAAAAAgACAAAAAAAEAA=</HashCode>
+      <FileName>Graphic\Screen\SaveLoadScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.Screen">
+    <Position X="17.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQABAAABBEFAwACRAwgAUAAgAAAAACAAigAAEBAAQA=</HashCode>
+      <FileName>Graphic\Screen\Screen.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.ScreenManager">
+    <Position X="17.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAYAAIAAgAAAAAAABBIAAAACAABRAAAAAAAAAA=</HashCode>
+      <FileName>Graphic\Screen\ScreenManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="mScreens" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.StatisticScreen">
+    <Position X="24.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphic\Screen\StatisticScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Misc.Statistics.Achievements">
+    <Position X="30.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAiAAAAAAAAAAAAAAACAAAAAAAAAAAAAAgAIAAAAA=</HashCode>
+      <FileName>Misc\Statistics\Achievements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Misc.Statistics.AllOverGameStatistic">
+    <Position X="24.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAQAAIAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Misc\Statistics\AllOverGameStatistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Map.MiniMap">
+    <Position X="26" Y="15.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="ConversionOfBrutes.Map.MiniMap.MiniDrawer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Map\MiniMap.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAgQAAABAAAEAEAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Map\MiniMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.MenuElements.ActionButton">
+    <Position X="22.75" Y="17" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="ConversionOfBrutes.Graphic.MenuElements.ActionButton.ActionIdent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Graphic\MenuElements\ActionButton.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAgAAAAAAAAgAAAAAAACIACQAAAICEAQ=</HashCode>
+      <FileName>Graphic\MenuElements\ActionButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.MenuElements.Thumbnail">
+    <Position X="20" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQEAAAAAAAAgACAAAAAAAAAAAAAACIBCAAAAIAEAA=</HashCode>
+      <FileName>Graphic\MenuElements\Thumbnail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

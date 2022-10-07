@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ConversionOfBrutes.Misc.CollisionHandler">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAABAAAAAAAAAAAAAACAABAAAAAAAAA=</HashCode>
+      <FileName>Misc\CollisionHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RVO.Agent">
+    <Position X="1.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAFACACAAAAgAQRABBARoAAIAAAAAAAABAQAEQAECgA=</HashCode>
+      <FileName>Misc\Collision\Agent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RVO.KdTree">
+    <Position X="4.25" Y="5.25" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="RVO.KdTree.FloatPair" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Misc\Collision\KdTree.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="RVO.KdTree.AgentTreeNode" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Misc\Collision\KdTree.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Class Name="RVO.KdTree.ObstacleTreeNode" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Misc\Collision\KdTree.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAEACAAAgCiAACAAAAEAAAAAAAABAAAgCAAAAACAACQ=</HashCode>
+      <FileName>Misc\Collision\KdTree.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="agents_" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="RVO.Obstacle">
+    <Position X="7" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAEAAAAAEQAAAAAAAAAAAIAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Misc\Collision\Obstacle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RVO.Simulator">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="RVO.Simulator.Worker" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Misc\Collision\Simulator.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>giIBAABIkCAAAACAASEACAAUAAhQSAAARQkAEABkQwA=</HashCode>
+      <FileName>Misc\Collision\Simulator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="kdTree_" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="agents_" />
+      <Field Name="obstacles_" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

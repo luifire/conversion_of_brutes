@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="used by ObjectManager&#xD;&#xA;">
+    <Position X="15.529" Y="15.979" Height="0.449" Width="1.994" />
+  </Comment>
+  <Comment CommentText="additionally initializes the GameScreen and its dependencies">
+    <Position X="1.561" Y="12.108" Height="0.886" Width="1.7" />
+  </Comment>
+  <Class Name="ConversionOfBrutes.AI.AiAgent">
+    <Position X="11.5" Y="8" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ConversionOfBrutes.AI.AiAgent.AiSave" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>AI\AiAgent.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ChQAAAAAACICAAAAAYAAEAAAAAhwAABAAQAAAAAgAQM=</HashCode>
+      <FileName>AI\AiAgent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.ObjectManager">
+    <Position X="10.5" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASgOAAAAAYAggAIEABBAAICIAAAASWAEIZABAQAAAE=</HashCode>
+      <FileName>GameObjects\ObjectManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Camera">
+    <Position X="12.5" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gGQQAACAEAQAAABgAABQAEAAAEIAAAgQQCQEMAgJEwA=</HashCode>
+      <FileName>Graphic\Camera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.GraphicsManager">
+    <Position X="20" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAEAAAQHIQAiQCAAAAAgAASAAICARAAABAKBAIA=</HashCode>
+      <FileName>Graphic\GraphicsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.GameScreen">
+    <Position X="9" Y="6.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ConversionOfBrutes.Graphic.Screen.GameScreen.GameSaveInformation" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Graphic\Screen\GameScreen.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>C2SSBEgCIBEIEwAAAMA4CAAAEUAAIAEQoIAABGAREAk=</HashCode>
+      <FileName>Graphic\Screen\GameScreen.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sCamera" />
+      <Field Name="sMap" />
+      <Field Name="sObjectManager" />
+      <Field Name="sGraphicsManager" />
+      <Field Name="sAiAgent" />
+      <Field Name="sGameLogic" />
+      <Field Name="sParticleManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.Screen.ScreenManager">
+    <Position X="11.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAYAAIAAgAAAAAAABBIAAAACAABRAAAAAAAAAA=</HashCode>
+      <FileName>Graphic\Screen\ScreenManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Main">
+    <Position X="5.5" Y="4.5" Width="1.5" />
+    <AssociationLine Name="sSHotKeys" Type="ConversionOfBrutes.Misc.HotKeys" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="6.926" />
+        <Point X="8.75" Y="6.926" />
+        <Point X="8.75" Y="2.75" />
+        <Point X="13.5" Y="2.75" />
+        <Point X="13.5" Y="3.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>BAQAcAIwAgAAAwQQAAEIIQAAGlgABIgAARAAAAAACCY=</HashCode>
+      <FileName>Main.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sAudioManager" />
+      <Field Name="sInputManager" />
+      <Field Name="mScreenManager" />
+      <Field Name="sSHotKeys" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.Map.QuadTree&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQIAAAAAAIACABAwAAAABCQAAAAAAAAEAgAAAABQIAA=</HashCode>
+      <FileName>Map\QuadTree.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ConversionOfBrutes.Misc.CollisionHandler">
+    <Position X="15.75" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAABAAAAAAAAAAAAAACAABAAAAAAAAA=</HashCode>
+      <FileName>Misc\CollisionHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Misc.HotKeys">
+    <Position X="13.5" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="ConversionOfBrutes.Misc.HotKeys.HotKey" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Misc\HotKeys.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAMAIAAAAAAAAAAAAACAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Misc\HotKeys.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Misc.InputManager">
+    <Position X="4" Y="13.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="ConversionOfBrutes.Misc.InputManager.MouseButton" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Misc\InputManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QAQBCAQKKYAnABAAAKIAACQEAAgAAAAAAo0ARAAAAAQ=</HashCode>
+      <FileName>Misc\InputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Misc.SaveAndLoad">
+    <Position X="1.75" Y="13" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ConversionOfBrutes.Misc.SaveAndLoad.MapSave" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Misc\SaveAndLoad.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="ConversionOfBrutes.Misc.SaveAndLoad.GameStateSave" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Misc\SaveAndLoad.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IRDACAAEgwAQCaTwMSYABAEICgAAUAgBAEIAUAAACAA=</HashCode>
+      <FileName>Misc\SaveAndLoad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Sound.AudioManager">
+    <Position X="7" Y="13" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="ConversionOfBrutes.Sound.AudioManager.Category" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Sound\AudioManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="ConversionOfBrutes.Sound.AudioManager.Sound" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Sound\AudioManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABSABAGDQFICAQAAAYAAgAgQAAAAACiACAAIASiACYQ=</HashCode>
+      <FileName>Sound\AudioManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameLogics.GameLogic">
+    <Position X="16.5" Y="8" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ConversionOfBrutes.GameLogics.GameLogic.GameLogicSavings" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GameLogics\GameLogic.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>CAQAgAAoIAAAhAAwAIABAAICAAAAAgAAgAAAAAAAAAw=</HashCode>
+      <FileName>GameLogics\GameLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.ParticleEffects.ParticleManager">
+    <Position X="20" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAhAAAAAQEAAAACAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Graphic\ParticleEffects\ParticleManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

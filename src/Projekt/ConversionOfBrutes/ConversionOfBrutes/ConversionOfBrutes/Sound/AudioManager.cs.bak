@@ -1,0 +1,237 @@
+﻿/*
+ * Author: Pius Meinert 
+ * TODO:  Add more epic sounds, especially the credit song from 'Battleblock Theater'
+ * */
+
+using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+
+namespace ConversionOfBrutes.Sound
+{
+    /// <summary>
+    /// This is the Audio which is responsible for
+    ///  audio playback and control.
+    /// </summary>
+    public sealed class AudioManager
+    {
+        AudioEngine mAudioEngine;
+        SoundBank mSoundBank;
+        WaveBank mInMemoryWave;
+        WaveBank mStreamWave;
+        private AudioEmitter mAudioemitter;
+        private AudioListener mAudioListener;
+	    private float mCurrentMusicVolume;
+		private float mCurrentSoundVolume;
+
+		//bool mMusicPaused;
+		//float mMusicVolume = 1;
+
+		//private bool mPauseReleased;
+
+        List<Cue> mActiveCues = new List<Cue>(); 
+
+		public enum Category 
+		{
+			Music,
+			Units
+		}
+	    private string[] mCategories;
+
+	    public enum Sound
+        {
+            BackgroundMusic, // IntroMusic 
+			BattleMusic,
+			SwordAttack,
+			SwordDeath,
+            Convert, // Wololo 
+            Taunt, // ShieldGuard - T
+			EnemyZoneCaptured,
+			CreditsMusic // Credit song
+        };
+        private string[] mSoundNames;
+
+        public AudioManager()
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Initialisation of the AudioEngine, Sound Banks, etc. necessary for
+        /// audio playback.
+        /// </summary>
+        private void Initialize()
+        {
+            mAudioEngine = new AudioEngine("Content\\Audio\\XACTAudioProject.xgs");
+            mSoundBank = new SoundBank(mAudioEngine, "Content\\Audio\\SoundBank.xsb");
+            mInMemoryWave = new WaveBank(mAudioEngine, "Content\\Audio\\InMemoryWave.xwb");
+            mStreamWave = new WaveBank(mAudioEngine, "Content\\Audio\\StreamWave.xwb", 0, 4);
+            mAudioemitter = new AudioEmitter();
+            mAudioListener = new AudioListener();
+
+			mSoundNames = new string[Enum.GetNames(typeof(Sound)).Length];
+	        mSoundNames[(int) Sound.BackgroundMusic] = "IntroMusic";
+			mSoundNames[(int) Sound.BattleMusic] = "WarriorMarch";
+	        mSoundNames[(int) Sound.SwordAttack] = "swclang3";
+	        mSoundNames[(int) Sound.SwordDeath] = "swdth_06";
+	        mSoundNames[(int) Sound.Convert] = "Wololo";
+	        mSoundNames[(int) Sound.Taunt] = "Taunt";
+	        mSoundNames[(int) Sound.EnemyZoneCaptured] = "NiceTown";
+	        mSoundNames[(int) Sound.CreditsMusic] = "Credits";
+			mCategories = new string[Enum.GetNames(typeof(Category)).Length];
+	        mCategories[(int) Category.Music] = "Music";
+	        mCategories[(int) Category.Units] = "Units";
+			//mSoundNames = Enum.GetNames(typeof(Sounds));
+			mAudioEngine.Update();
+        }
+   
+		/// <summary>
+		/// Controls (eg. pause, volume) the given audio, 
+        /// in particular the given audio categories. 
+		/// </summary>
+        public void Update()
+        {
+            mAudioEngine.Update();
+
+			/*
+            if (Keyboard.GetState().IsKeyDown(Keys.OemPlus))
+            {
+                mMusicVolume = (float) (mMusicVolume + 0.05);
+                mMusic.SetVolume(mMusicVolume);
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.OemMinus))
+            {
+                mMusicVolume = (float) (mMusicVolume - 0.05);
+                if (mMusicVolume < 0)
+                {
+                    mMusicVolume = 0;
+                }
+                mMusic.SetVolume(mMusicVolume);
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.P) && mPauseReleased)
+            {
+                if (mMusicPaused)
+                {
+                    mMusic.Resume();
+                }
+                else
+                {
+                    mMusic.Pause();
+                }
+                mMusicPaused = !mMusicPaused;
+                mPauseReleased = false;
+            }
+            if (Keyboard.GetState().IsKeyUp(Keys.P))
+            {
+                mPauseReleased = true;
+            }
+			*/
+
+            for (int i = 0; i < mActiveCues.Count; i++)
+            {
+                if (mActiveCues[i].IsStopped)
+                {
+                    mActiveCues.Remove(mActiveCues[i]);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Regular playback of a cue using XACT. 
+        /// </summary>
+        /// <param name="soundId"></param>
+        public void PlaySound(Sound soundId)
+        {
+            var cue = mSoundBank.GetCue((mSoundNames[(int)soundId]));
+            if (IsSoundPlaying(cue))
+            {
+                return;
+            }
+            cue.Play();
+            mActiveCues.Add(cue);
+        }
+
+        /// <summary>
+        /// XACT-Audio playback with 3D Positioning-effect. 
+        /// </summary>
+        /// <param name="soundId"></param>
+        /// <param name="objectPosition"></param>
+        public void Play3DSound(Sound soundId, Vector3 objectPosition)
+        {
+            var cue = mSoundBank.GetCue(mSoundNames[(int)soundId]);
+            if (IsSoundPlaying(cue))
+            {
+                return;
+            }
+            mAudioemitter.Position = objectPosition;
+            cue.Apply3D(mAudioListener, mAudioemitter);
+            cue.Play();
+            mActiveCues.Add(cue);
+        }
+
+		/// <summary>
+		/// Pause all sounds of given audio category ('Music', 'Units').
+		/// </summary>
+		/// <param name="categoryIdentifier"></param>
+	    public void PauseSound(Category categoryIdentifier)
+	    {
+			AudioCategory audioCategory = mAudioEngine.GetCategory(mCategories[(int)categoryIdentifier]);
+			audioCategory.Pause();
+	    }
+
+		/// <summary>
+		/// Resume all sounds of given audio category ('Music', 'Units').
+		/// </summary>
+		/// <param name="categoryIdentifier"></param>
+	    public void ResumeSound(Category categoryIdentifier)
+	    {
+			AudioCategory audioCategory = mAudioEngine.GetCategory(mCategories[(int)categoryIdentifier]);
+			audioCategory.Resume();
+	    }
+
+	    /// <summary>
+	    /// UnitGotConverted all sounds of given audio category ('Music', 'Units').
+	    /// </summary>
+	    /// <param name="categoryIdentifier"></param>
+	    public void StopSound(Category categoryIdentifier)
+	    {
+		    AudioCategory audioCategory = mAudioEngine.GetCategory(mCategories[(int) categoryIdentifier]);
+			audioCategory.Stop(AudioStopOptions.AsAuthored);
+	    }
+
+		/// <summary>
+		/// Set Volume of available ('Music', 'Units') audio categories. Ranges from 0 to 1 (and beyond).
+		/// </summary>
+		/// <param name="categoryIdentifier"></param>
+		/// <param name="volume"></param>
+	    public void SetVolume(Category categoryIdentifier, float volume)
+		{
+
+			if (categoryIdentifier == Category.Units) { mCurrentSoundVolume = volume; }
+			if(categoryIdentifier == Category.Music) {mCurrentMusicVolume = volume;}
+			AudioCategory audioCategory = mAudioEngine.GetCategory(mCategories[(int)categoryIdentifier]);
+		    if (volume >= 0)
+		    {
+			    audioCategory.SetVolume(volume);
+		    }
+
+	    }
+
+        private bool IsSoundPlaying(Cue cue)
+        {
+            for (int i = 0; i < mActiveCues.Count; i++)
+            {
+                if (cue.Name == mActiveCues[i].Name)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+		public float CurrentMusicVolume { get { return mCurrentMusicVolume; }}
+		public float CurrentSoundVolume { get { return mCurrentSoundVolume; } }
+    }
+}

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="034010a6-134b-4eab-b5d9-3c820499a435" name="ComponentDiagram" linkedPackageId="804e45cb-afa6-4173-b06a-b622b5592462" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner">
+  <ownedCommentsInternal>
+    <comment Id="496c3cc2-48ce-43ab-bbb0-e84667a7a3df">
+      <elementDefinition Id="3f78f1ed-4e23-49e3-aa59-ccaeeb31946f" />
+      <body>Initialization</body>
+      <annotatedElements>
+        <componentMoniker Id="8173da5a-74a3-41c8-b5b3-a14a73ce2aa6" LastKnownName="Screenmanager" />
+      </annotatedElements>
+    </comment>
+    <comment Id="6e290443-bae2-45f4-8ade-90c6e2b58c75">
+      <elementDefinition Id="303e9a0e-a5c3-47e9-a0ff-dbc51ad04392" />
+      <body>The Game starts from here, so everything is put together in 
+here. </body>
+    </comment>
+    <comment Id="bd6c1113-5149-4a91-85b1-a4629fbfdda2">
+      <elementDefinition Id="701b8c9c-25fd-4fe2-8a5c-8a8061c47de0" />
+      <body>Organizes all objects</body>
+    </comment>
+    <comment Id="bcdbab5c-8577-470f-b4e2-791cc24ae257">
+      <elementDefinition Id="53f87348-b9e2-4d6e-802d-7d5c6166cb8b" />
+      <body>Objects in the world and the map use this to draw themselves.</body>
+    </comment>
+    <comment Id="1e852dbb-9d6a-4c46-9c0d-cfaa7d191fcb">
+      <elementDefinition Id="6890ecef-fe2b-41a5-af66-dbfacd7718c0" />
+      <body>Used by Units to navigate. 
+Has a navigation graph.</body>
+    </comment>
+    <comment Id="95dc2c49-ed1e-4169-8ce4-2ae8bad16309">
+      <elementDefinition Id="215fb5e0-994c-4fd9-8b7e-84b387529932" />
+      <body>Also loads maps</body>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <componentModelHasComponents>
+      <component Id="30c78775-b806-4b4f-a60b-ff756270e8e8" name="Ai" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7adc07a4-c411-4324-98d0-bc86abfa8896" />
+        <suppliersInternal>
+          <dependency Id="1c254375-675f-41f1-b6ba-64730f99c57b">
+            <componentMoniker Id="b1cbd76b-950a-4f1d-bb25-300925729c8f" LastKnownName="ObjectManager" />
+            <elementDefinition Id="05d1f5a1-68ea-4f71-a80a-8e41c121d167" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="8173da5a-74a3-41c8-b5b3-a14a73ce2aa6" name="Screenmanager" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="108b068f-1b8c-40d3-95b1-6ffd44b10012" />
+        <suppliersInternal>
+          <dependency Id="0e609d87-56cc-418c-8f74-f7478e95e317">
+            <componentMoniker Id="702d9fdf-ba34-4c1f-8cab-d39285a37a23" LastKnownName="Gamescreen" />
+            <elementDefinition Id="a0272e9a-1870-4106-b9dc-6cdf84aec568" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="0647e1a7-c42c-4411-b2aa-f7597249b9ae" name="Serialization" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="df3e3e4c-d61c-4e91-9e81-12fa2765d536" />
+        <suppliersInternal>
+          <dependency Id="9e2fd47c-89f0-42e3-beaf-2f43783ea88f">
+            <componentMoniker Id="b1cbd76b-950a-4f1d-bb25-300925729c8f" LastKnownName="ObjectManager" />
+            <elementDefinition Id="d3e52d92-45fb-4897-a64f-402d42e95572" />
+          </dependency>
+          <dependency Id="53bd54a7-6af5-4cc1-8389-8721138f998c">
+            <componentMoniker Id="702d9fdf-ba34-4c1f-8cab-d39285a37a23" LastKnownName="Gamescreen" />
+            <elementDefinition Id="86ddc3a8-563f-4952-bfa3-a175eb47d9f7" />
+          </dependency>
+          <dependency Id="49dd4af2-2b48-451d-9dd1-5f2a69b52788">
+            <componentMoniker Id="30c78775-b806-4b4f-a60b-ff756270e8e8" LastKnownName="Ai" />
+            <elementDefinition Id="da7214a8-a749-46b5-b696-b7d1d3899cfe" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="702d9fdf-ba34-4c1f-8cab-d39285a37a23" name="Gamescreen" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="751a4db5-841f-4b29-858e-b39e69756bf1" />
+        <suppliersInternal>
+          <dependency Id="0919d03f-903d-4d78-9549-8f5a9d593e3d">
+            <componentMoniker Id="b1cbd76b-950a-4f1d-bb25-300925729c8f" LastKnownName="ObjectManager" />
+            <elementDefinition Id="a1fb8861-4d44-4268-9ee8-2e4a4bb44f25" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="b1cbd76b-950a-4f1d-bb25-300925729c8f" name="ObjectManager" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f9e87dde-c63a-4ee1-9922-b2b00c853605" />
+        <suppliersInternal>
+          <dependency Id="ae12d662-686e-4e9e-ac8a-6ae706d89ad6">
+            <componentMoniker Id="87898f82-b932-4cb5-b334-832a0137dec7" LastKnownName="GraphicsManager" />
+            <elementDefinition Id="ce2a7cad-4b17-4987-bf29-672c07b7a393" />
+          </dependency>
+          <dependency Id="05a4d072-6a68-4e27-a13b-cb0df3113ec7">
+            <componentMoniker Id="034af628-126c-454f-8045-441137a50025" LastKnownName="Pathfinder" />
+            <elementDefinition Id="3c00b0ec-7721-4aa6-a96e-e9d992c18942" />
+          </dependency>
+          <dependency Id="5ac7d66b-5d99-40c0-8c9b-ca0bc6fcda31">
+            <componentMoniker Id="60538d1c-ad55-4b1c-8e0c-168298af1c55" LastKnownName="Collision" />
+            <elementDefinition Id="e69e21a3-50e2-45c2-8e24-bff2d191bd24" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="87898f82-b932-4cb5-b334-832a0137dec7" name="GraphicsManager" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="198eda4f-a93c-4924-911d-77aaa907c52a" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="034af628-126c-454f-8045-441137a50025" name="Pathfinder" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5836f9e7-a9d9-4d38-85d6-2bf9e2fdbf16" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="60538d1c-ad55-4b1c-8e0c-168298af1c55" name="Collision" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ff124a77-c6a8-48c1-b5fe-0c46b6ff3104" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="d02e75ef-f52b-49c5-8f3c-984f84a6b8a5" name="Input / Player" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="aa42f616-5c8c-47e6-a3f7-6dad233d0e86" />
+        <suppliersInternal>
+          <dependency Id="f62175f5-b75b-4344-b63b-a1f9b3b46a9d">
+            <componentMoniker Id="b1cbd76b-950a-4f1d-bb25-300925729c8f" LastKnownName="ObjectManager" />
+            <elementDefinition Id="2183136f-3391-4b93-88a7-fad05f728146" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+  </packagedElements>
+  <package Id="804e45cb-afa6-4173-b06a-b622b5592462" name="ModelingProject1">
+    <elementDefinition Id="68c64f30-2045-4609-adc9-4ad675604bfc" />
+    <profileInstances>
+      <packageHasProfileInstances Id="54066aa6-8d76-4f75-a539-1e191280bd7b">
+        <profileInstance Id="02fdb18e-97b7-4104-a0b9-309553b8351f" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="7349b4d1-023f-415a-8652-6612bf7168b1">
+        <profileInstance Id="9d28ec7e-99b0-4903-afe2-f0ef8acb9b67" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</componentModel>

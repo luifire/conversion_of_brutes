@@ -1,0 +1,47 @@
+﻿/**
+ * Original author: David Spisla 
+ * 
+ * Concrete Class for the Game State
+ * Usage: This Class Implements the Game State which is edited by the GameLogic 
+ * Missing: 
+ * - additional values for statistic, etc.
+ **/
+
+using System;
+using System.Collections.Generic;
+using ConversionOfBrutes.GameObjects;
+using ConversionOfBrutes.Misc;
+using Microsoft.Xna.Framework;
+
+namespace ConversionOfBrutes.GameLogics
+{   
+	[Serializable]
+	public class GameState
+	{
+		//Values for the object manager
+		private LinkedList<WorldObject> mMapObjects = new LinkedList<WorldObject>();
+		private LinkedList<Unit> mUnits = new LinkedList<Unit>();
+
+		//Values for the AI
+		private LinkedList<Zone> mTargetedZones = new LinkedList<Zone>(); 
+		private SpawnZone mHomeZone = new SpawnZone(Ident.Spawnzone, new Vector2(100, 100), Fraction.Player);
+		private LinkedList<Unit> mAllAiUnits = new LinkedList<Unit>(); 
+		private LinkedList<Unit> mUnitsInSquads = new LinkedList<Unit>();
+
+		//Values for the GameScreen
+		private GameStatistic mGameStatistic = new GameStatistic();
+		
+		public LinkedList<WorldObject> MapObjects { get { return mMapObjects; } set { mMapObjects = value; } }
+
+		public LinkedList<Unit> Units { get { return mUnits; } set { mUnits = value; } }
+
+		public LinkedList<Unit> UnitsInSquads {get { return mUnitsInSquads; } set { mUnitsInSquads = value; }}
+
+		public LinkedList<Unit> AllAiUnits { get { return mAllAiUnits; } set { mAllAiUnits = value; } }
+
+		public SpawnZone HomeZone { get { return mHomeZone; } set { mHomeZone = value; }}
+
+		public LinkedList<Zone> TargetedZones { get { return mTargetedZones; } set { mTargetedZones = value; }}
+		public GameStatistic GameStatistic { get { return mGameStatistic; } set { mGameStatistic = value; } }
+	}
+}

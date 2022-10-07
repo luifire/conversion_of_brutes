@@ -1,0 +1,143 @@
+﻿/**
+ * Author: David Spisla 
+ * 
+ * Concrete Class for the Main Menu
+ * Usage: This Class Implements the Main Menu for the game  
+ * Missing: 
+ * - functionality of all buttons
+ **/
+
+//#define MUSIC
+
+using System.Collections.Generic;
+using ConversionOfBrutes.Misc;
+using ConversionOfBrutes.Sound;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+namespace ConversionOfBrutes.Graphic.Screen
+{
+	internal sealed class MainMenuScreen : Screen
+	{
+
+		/// <summary>
+		/// Basic constructor for the MainMenuScreen
+		/// </summary>
+		public MainMenuScreen()
+		{
+			sMainMenuScreen = this;
+			Initialize();
+		}
+
+		public override void Initialize()
+		{
+#if MUSIC
+			Main.Audio.PlaySound(AudioManager.Sound.BattleMusic);
+			Main.Audio.SetVolume(AudioManager.Category.Music, 1f);
+#endif
+
+			GraphicsDeviceManager graphics = Main.Graphics;
+			mScreenWidth = graphics.PreferredBackBufferWidth;
+			mScreenHeight = graphics.PreferredBackBufferHeight;
+			
+			mTranslucent = false;
+			mItems = new List<MenuButton>();
+			mSpriteBatch = new SpriteBatch(graphics.GraphicsDevice);
+
+			mBackground = new MenuLabel(MenuItem.MenuIdentifier.Background, ScaledRectangle(0, 0, 1920, 1080), null);
+			mItems.Add(new MenuButton(MenuItem.MenuIdentifier.Play, ScaledRectangle(105, 940, 210, 100)));
+			mItems.Add(new MenuButton(MenuItem.MenuIdentifier.Load, ScaledRectangle(315, 940, 210, 100)));
+			mItems.Add(new MenuButton(MenuItem.MenuIdentifier.Map, ScaledRectangle(525, 940, 210, 100)));
+			mItems.Add(new MenuButton(MenuItem.MenuIdentifier.Statistics, ScaledRectangle(945, 940, 210, 100)));
+			mItems.Add(new MenuButton(MenuItem.MenuIdentifier.GameOptions, ScaledRectangle(735, 940, 210, 100)));
+			mItems.Add(new MenuButton(MenuItem.MenuIdentifier.Achievements, ScaledRectangle(1155, 940, 210, 100)));
+			mItems.Add(new MenuButton(MenuItem.MenuIdentifier.Credits, ScaledRectangle(1365, 940, 210, 100)));
+			mItems.Add(new MenuButton(MenuItem.MenuIdentifier.Quit, ScaledRectangle(1575, 940, 210, 100)));
+			
+			mIsLoading = true;
+		}
+
+		// TODO löschen
+		private static MainMenuScreen sMainMenuScreen;
+		public static void AddGameScreenÜbergangsFunktion(GameScreen gs)
+		{
+			sMainMenuScreen.UpdateDeactivate();
+			sMainMenuScreen.DrawDeactivate();
+			sMainMenuScreen.mManager.AddScreen(new LoadScreen());
+			sMainMenuScreen.mManager.AddScreen(gs);
+			ScreenManager.mLoading = true;	
+		}
+
+		public override void Update()
+		{
+			TestMouseSlideOver();
+
+			MenuButton button = MouseClickedGetButton(mItems);
+					if (button != null)
+					{
+						switch (button.Identifier)
+						{
+							case MenuItem.MenuIdentifier.Play:
+								SaveAndLoad.LoadNewGame("Map1");
+								//SaveAndLoad.Instance.LoadNewGame("Map1");
+								/*UpdateDeactivate();
+								DrawDeactivate();
+								mManager.AddScreen(new LoadScreen());
+								mManager.AddScreen(new GameScreen());
+								ScreenManager.mLoading = true;
+								*/
+								//SaveAndLoad.Instance.SaveMap();
+								break;
+							case MenuItem.MenuIdentifier.Load:
+								SaveAndLoad.LoadSaveGame("26.06. 14-20-53");
+								break;
+							case MenuItem.MenuIdentifier.Map:
+								//SaveAndLoad.Instance.LoadNewGame("Map1");
+								//new SaveAndLoad("Map1", GameScreen.Type.MapEditor);
+								UpdateDeactivate();
+								DrawDeactivate();
+								SaveAndLoad.LoadMapEditor("Map2");
+								/*
+								mManager.AddScreen(new LoadScreen());
+								GameScreen gameScreen = new GameScreen(true);
+								mManager.AddScreen(gameScreen);
+								gameScreen.InitializeMapEditor();
+								ScreenManager.mLoading = true;*/
+								break;
+							case MenuItem.MenuIdentifier.Quit:
+								Main.Audio.StopSound(AudioManager.Category.Music);
+								AllOverGameStatistic obj = Main.mAllOverGameStatistic;
+								Serialization.SaveAllOverGameStatistic(obj);
+								Main.Game.Exit();
+								break;
+							case MenuItem.MenuIdentifier.Statistics:
+								UpdateDeactivate();
+								DrawDeactivate();
+								mManager.AddScreen(new StatisticScreen());
+								break;
+							case MenuItem.MenuIdentifier.Achievements:
+								UpdateDeactivate();
+								DrawDeactivate();
+								mManager.AddScreen(new AchievementScreen());
+								break;
+							case MenuItem.MenuIdentifier.GameOptions:
+								UpdateDeactivate();
+								DrawDeactivate();
+								mManager.AddScreen(new OptionScreen());
+								break;
+							case MenuItem.MenuIdentifier.Credits:
+								UpdateDeactivate();
+								DrawDeactivate();
+								mManager.AddScreen(new CreditsScreen());
+								break;
+						}
+					}
+		}
+		
+		public override void Draw()
+		{
+			DrawButtonsAndBackground();
+		}
+		
+	}
+}

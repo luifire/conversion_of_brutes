@@ -1,0 +1,82 @@
+﻿/*
+ * Author: Pius Meinert 
+ * TODO: Everything... 
+ * */
+
+using System;
+using ConversionOfBrutes.Graphic.Screen;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+
+namespace ConversionOfBrutes.Misc
+{
+	/// <summary>
+	/// Load, save and change maps to play on. In addition it manages the NavMeshEditor. 
+	/// </summary>
+	sealed class MapEditor
+	{
+		private NavigationMeshEditor mNavigationMeshEditor;
+		private bool mEditMap = true;
+
+		public MapEditor()
+		{
+			mNavigationMeshEditor = new NavigationMeshEditor();
+			GameScreen.HotKey.ChangeToMapEditorMapping();
+		}
+
+		/// <summary>
+		/// Manage the input to create desired WorldObjects (MapObjects). 
+		/// </summary>
+		public void Update()
+		{
+			// Developer Info
+			if (Main.Input.WasButtonPressed(GameScreen.HotKey.GetHotkey(HotKeys.HotKey.SwitchMode)))
+			{
+				mEditMap = !mEditMap;
+			}
+			String s = "mEditMap: " + mEditMap + "\n";
+			foreach (HotKeys.HotKey hotKey in Enum.GetValues(typeof (HotKeys.HotKey)))
+			{
+				if (GameScreen.HotKey.GetHotkey(hotKey) == Keys.F24)
+				{
+					continue;
+				}
+				s = s + hotKey + ": " + GameScreen.HotKey.GetHotkey(hotKey) + "\n";
+			}
+			GameScreen.Hud.DeveloperInfo = s;
+
+			if (mEditMap)
+			{
+				//HandleMapEditorInput();
+			}
+			else
+			{
+				//HandleNavigationMeshEditorInput();
+			}
+		}
+
+		/// <summary>
+		/// Just invokes the draw method for the NavMeshEditor 
+		/// </summary>
+		public void Draw()
+		{
+			//mNavigationMeshEditor.Draw();
+		}
+
+		/*
+		//Calculates the 2D Mouseposition to a 3D position
+		private Vector2 Calc3DMousepos(MouseState ms)
+		{
+			var nearScreenPoint = new Vector3(ms.X, ms.Y, 0);
+			var farScreenPoint = new Vector3(ms.X, ms.Y, 1);
+			var nearWorldPoint = Main.Graphics.GraphicsDevice.Viewport.Unproject(nearScreenPoint, GameScreen.Camera.ProjectionMatrix, GameScreen.Camera.ViewMatrix, Matrix.Identity);
+			var farWorldPoint = Main.Graphics.GraphicsDevice.Viewport.Unproject(farScreenPoint, GameScreen.Camera.ProjectionMatrix, GameScreen.Camera.ViewMatrix, Matrix.Identity);
+			var direction = farWorldPoint - nearWorldPoint;
+			var zFactor = -nearWorldPoint.Y / direction.Y;
+			var zeroWorldPoint = nearWorldPoint + direction * zFactor;
+
+			return new Vector2(zeroWorldPoint.X, zeroWorldPoint.Z);
+		}
+		 * */
+	}
+}

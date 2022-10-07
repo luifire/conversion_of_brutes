@@ -1,0 +1,90 @@
+﻿/**
+ * Author: David Spisla 
+ * 
+ * Concrete Class for the VictoryScreen 
+ * Usage: This Class Implements the VictoryScreen for the game  
+ * Missing: 
+ * - functionality of all buttons
+ **/
+
+using System.Collections.Generic;
+using ConversionOfBrutes.Misc;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+namespace ConversionOfBrutes.Graphic.Screen
+{
+	class VictoryScreen : Screen
+	{
+		
+		/// <summary>
+		/// Basic constructor for the VictoryScreen
+		/// </summary>
+		public VictoryScreen()
+		{
+			Initialize();	
+		}
+
+
+		public override void Initialize()
+		{
+			GraphicsDeviceManager graphics = Main.Graphics;
+			mScreenWidth = graphics.PreferredBackBufferWidth;
+			mScreenHeight = graphics.PreferredBackBufferHeight;
+			GameScreen.Stopwatch.Stop();
+			mTranslucent = false;
+			mItems = new List<MenuButton>();
+			mSpriteBatch = new SpriteBatch(graphics.GraphicsDevice);
+			mBackground = new MenuLabel(MenuItem.MenuIdentifier.VictoryScreen, ScaledRectangle(1920 / 2 - (1920 / 8), 1080 / 2 - (1080 / 4), 508, 563), null);
+			mItems.Add(new MenuButton(MenuItem.MenuIdentifier.NewGame, ScaledRectangle(870, 480, 210, 100)));
+			mItems.Add(new MenuButton(MenuItem.MenuIdentifier.Load, ScaledRectangle(870, 590, 210, 100)));
+			mItems.Add(new MenuButton(MenuItem.MenuIdentifier.MainMenu, ScaledRectangle(870, 700, 210, 100)));
+
+			mIsLoading = true;
+		}
+
+		public override void Update()
+		{
+			TestMouseSlideOver();
+			MenuButton button = MouseClickedGetButton(mItems);
+			if (button != null)
+			{
+
+						switch (button.Identifier)
+						{
+							case MenuItem.MenuIdentifier.NewGame:
+								mManager.RemoveScreen();
+								mManager.RemoveScreen();
+								mManager.RemoveScreen();
+								mManager.AddScreen(new GameScreen(false));
+								break;
+							case MenuItem.MenuIdentifier.Load:
+								// implement Loading function
+								break;
+							case MenuItem.MenuIdentifier.MainMenu:
+								Main.mGameStatistic.GameTime += GameScreen.Stopwatch.Elapsed.Seconds;
+								GameStatistic stat = Main.mGameStatistic;
+								Serialization.SaveGameStatistic(stat);
+								mManager.RemoveScreen();
+								mManager.RemoveScreen();
+								mManager.RemoveScreen();
+								mManager.GetPeek().UpdateActivate();
+								mManager.GetPeek().DrawActivate();
+								break;
+							
+						}
+					}
+		}
+
+		public override void Draw()
+		{
+			
+			DrawButtonsAndBackground();
+			Handling2DAnd3D();
+			
+		}
+	}
+}
+
+	
+

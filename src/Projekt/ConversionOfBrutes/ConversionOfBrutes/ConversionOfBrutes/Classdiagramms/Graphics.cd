@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ConversionOfBrutes.Animation.AnimatedModel">
+    <Position X="7.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAECAAAAAACAAAEBAAAAAAQCACAAgAgBAAAAAAQ=</HashCode>
+      <FileName>Animation\AnimatedModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="mBones" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.Animation.AnimationManager">
+    <Position X="1.5" Y="9.5" Width="1.75" />
+    <NestedTypes>
+      <Enum Name="ConversionOfBrutes.Animation.AnimationManager.AnimationModels" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Animation\AnimationManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAgAQAAAABAAAAAEAA=</HashCode>
+      <FileName>Animation\AnimationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Animation.AnimationPlayer">
+    <Position X="4.75" Y="11.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ConversionOfBrutes.Animation.AnimationPlayer.BoneInfo" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Animation\AnimationPlayer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAACAAAgAAACAAAAABAAACAAAAgAIAIACgA=</HashCode>
+      <FileName>Animation\AnimationPlayer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mOdel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.Animation.Bone">
+    <Position X="7.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAEAAABEAAAIACAgIEQAQAQAAACABEAAiAAIQAAAA=</HashCode>
+      <FileName>Animation\Bone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.WorldObject">
+    <Position X="4.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACBAoIAIEAQEAAkAAAAAVADICIIAQUIIAgAiQKBAgA=</HashCode>
+      <FileName>GameObjects\WorldObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.GraphicsManager">
+    <Position X="1.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAEAAAQHIQAiQCAAAAAgAASAAICARAAABAKBAIA=</HashCode>
+      <FileName>Graphic\GraphicsManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mAnimationManager" />
+      <Field Name="mFogOfWar" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="mArrows" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.ParticleEffects.ParticleManager">
+    <Position X="15.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAhAAAAAQEAAAACAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Graphic\ParticleEffects\ParticleManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="mRingParticleSystems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.ParticleEffects.Particlesystems.MagicAttackParticleSystem">
+    <Position X="10.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEACAAAIiAgIAAAYAAAEAAEBDAAAIAAAAwAEgA=</HashCode>
+      <FileName>Graphic\ParticleEffects\Particlesystems\MagicAttackParticleSystem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mUnit" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.ParticleEffects.Particlesystems.RingParticleSystem">
+    <Position X="12.25" Y="2.75" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ConversionOfBrutes.Graphic.ParticleEffects.Particlesystems.RingParticleSystem.SmokeRingParticleSystem" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Graphic\ParticleEffects\Particlesystems\RingParticleSystem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>BAAgIAFACAAAIwAiABCAYAAAAACMBBAAQIAAAQwAAkE=</HashCode>
+      <FileName>Graphic\ParticleEffects\Particlesystems\RingParticleSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Map.FogOfWar">
+    <Position X="6.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAAAAAAAAAEQCAAAAAAAAAAgAAAAAAAIAAAAABAA=</HashCode>
+      <FileName>Map\FogOfWar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Misc.Arrow">
+    <Position X="8.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAABAQAgA=</HashCode>
+      <FileName>Misc\Arrow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.Unit" Collapsed="true">
+    <Position X="6.75" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QgVQ6ILYYADIKlgVcqC+EAAFAJBgFAfFLB8AVI6CEAE=</HashCode>
+      <FileName>GameObjects\Unit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mTargetUnit" />
+      <Field Name="mAnimatedModel" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

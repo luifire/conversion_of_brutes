@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Modifies NagivationGraph">
+    <Position X="7.902" Y="4.476" Height="0.408" Width="1.7" />
+  </Comment>
+  <Class Name="ConversionOfBrutes.AI.Pathfinding.AStarPathfinder">
+    <Position X="4.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgQAAAAAgAAAAADAAABAAAAGAIAAAAAEAIAAAAA=</HashCode>
+      <FileName>AI\Pathfinding\AStarPathfinder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mNavigationGraph" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.AI.Pathfinding.NavigationGraph">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAgAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAkAA=</HashCode>
+      <FileName>AI\Pathfinding\NavigationGraph.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="mNodes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.AI.Pathfinding.Node">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAEAAgQAAAAAAAEAAAAAAAAAAAAAAAAAAAoA=</HashCode>
+      <FileName>AI\Pathfinding\Node.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Map.NavigationMeshEditor">
+    <Position X="7.75" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ARQQAAIBBAAAIgEqCACCAQBABAAQCYAAwAAEBAIIAEA=</HashCode>
+      <FileName>Map\NavigationMeshEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

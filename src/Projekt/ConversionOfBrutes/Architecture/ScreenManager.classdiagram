@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" dslVersion="1.0.0.0" Id="3089f09c-9e42-46a1-b3cc-0f1a44306200" name="ScreenManager" linkedPackageId="6d6e91a7-6d6f-427c-bd8a-ab1821d45dd0" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="cb4aee21-42de-48d4-9185-eadb24cf9dc6">
+      <profileInstance Id="25b3a4a0-ad2b-42c8-b470-8800671b46dc" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="9a645867-0c20-4567-af19-1ed9eead0fe4">
+      <profileInstance Id="9079bc7e-b121-4c4b-8c97-1b04a21822b7" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b1afc94a-6d37-475e-b513-f8880761bf3b" name="ScreenManager" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="02326f97-8394-4d28-9fa2-5b2a001d9227" />
+        <targetEnds>
+          <association Id="ac7fe3a8-f054-4752-8cd2-330d70925032" isDerived="false" sourceEndRoleName="ScreenManager" targetEndRoleName="IScreen" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="d7a33e13-d2c4-4f1a-b40b-1d44711425bb" LastKnownName="IScreen" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="71852050-d918-40cc-abd0-7f8eee1d879e" name="ScreenManager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e74392d1-06a6-40e2-ad69-9f403b129a51" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d2d1d9fc-ee72-4ed9-a3fb-04641cc55be9" name="IScreen" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="40b93471-ca73-435e-b3cf-d648b8ad5429" name="Lower" value="n">
+                      <elementDefinition Id="b7a3ce31-a1c1-4535-84b1-cafe84249a57" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="5b5cc66f-12bb-4d84-a159-5038597cd538" name="Upper" value="n">
+                      <elementDefinition Id="6dc9a099-897a-4d83-9449-ee420af76e31" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="3d9adb61-c41a-437f-9dc8-f8b334cf0403" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b5a802f9-eb47-457f-83a4-092ed7b3990f" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="3198c38d-627b-418c-9145-5e0ce4c4369d" name="ScreenStack" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="114a65b9-1470-4f41-9875-f6bf95dfb961" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="f43d30e7-3891-4495-8536-9b3ec75cd170" name="PushScreen" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="bb41e03b-07a4-4164-b48d-3a9569e1d1a4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="beb95d28-87db-4356-8e24-4ce563f48f8e" name="Flag" direction="In" isUnique="false">
+                  <elementDefinition Id="4c9d3876-3181-403b-94cc-10093461496b" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="c2ea5f5c-3ced-4596-b0f2-561b560afd26" name="PopScreen" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b203253e-5eb2-4317-8f60-41d13b76bbc7" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="d7a33e13-d2c4-4f1a-b40b-1d44711425bb" name="IScreen" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="dcfcc5a1-df4b-4530-8bac-d18ef1a10027" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="50f8f0bd-db98-447b-90bd-bcbc54841109" name="MainMenu" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c9aa1355-f493-4790-8aae-87a367b12d3b" />
+        <suppliersInternal>
+          <dependency Id="529fea54-feeb-448c-8c54-69241c65ee60">
+            <interfaceMoniker Id="d7a33e13-d2c4-4f1a-b40b-1d44711425bb" LastKnownName="IScreen" />
+            <elementDefinition Id="d161c360-2449-4c4c-bca9-71aba1364229" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="545b97bf-d414-4e41-926e-d9e9b7d56a78" name="Game" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="022f3347-45ba-4748-8361-d3ee038fb524" />
+        <suppliersInternal>
+          <dependency Id="005b8f3a-9798-4cf2-8f46-4404dc9b33f6">
+            <interfaceMoniker Id="d7a33e13-d2c4-4f1a-b40b-1d44711425bb" LastKnownName="IScreen" />
+            <elementDefinition Id="657a529f-1f4c-4daf-9eac-418de55eca1b" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4177c5a1-067e-4a22-9b98-d9282467c6ba" name="Hud" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5bafb3b1-635c-4460-a9e4-19ea8dfaf14d" />
+        <suppliersInternal>
+          <dependency Id="b26b728e-b213-462e-ae50-e8a7aa7f510f">
+            <interfaceMoniker Id="d7a33e13-d2c4-4f1a-b40b-1d44711425bb" LastKnownName="IScreen" />
+            <elementDefinition Id="28248439-94c9-455a-9284-d6b6cc5ff50d" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="dcaa71a5-ac21-4982-90b3-6c2660d76065" name="IngameOptions" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="8fe92067-4877-40f3-b3c2-81542b00d23c" />
+        <suppliersInternal>
+          <dependency Id="b14206fb-6b14-42a1-ac9d-b96c198abfb0">
+            <interfaceMoniker Id="d7a33e13-d2c4-4f1a-b40b-1d44711425bb" LastKnownName="IScreen" />
+            <elementDefinition Id="c8c405ea-49a2-4c6a-9f09-a27cb66cc1fc" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="6d6e91a7-6d6f-427c-bd8a-ab1821d45dd0" name="ModelingProject1">
+    <elementDefinition Id="68c64f30-2045-4609-adc9-4ad675604bfc" />
+  </package>
+</logicalClassDesignerModel>

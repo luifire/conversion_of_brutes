@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Creates WorldObjects">
+    <Position X="16.317" Y="1.748" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="ConversionOfBrutes.GameObjects.AttackUnit">
+    <Position X="13.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\AttackUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.MountedUnit">
+    <Position X="13.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>GameObjects\MountedUnit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mHorse" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.ObjectManager">
+    <Position X="0.5" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AASgOAAAAAYAggAIEABBAAICIAAAASWAEIZABAQAAAE=</HashCode>
+      <FileName>GameObjects\ObjectManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mSelectionHandler" />
+      <Field Name="mPathfinder" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="mMapObjects" />
+      <Field Name="mUnits" />
+      <Field Name="mZones" />
+      <Field Name="mSelectableObjects" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.Priest">
+    <Position X="13.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Priest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.ShieldGuard">
+    <Position X="13.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAA=</HashCode>
+      <FileName>GameObjects\ShieldGuard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.Unit">
+    <Position X="10" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QgVQ6ILYYADIKlgVcqC+EAAFAJBgFAfFLB8AVI6CEAE=</HashCode>
+      <FileName>GameObjects\Unit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mTargetUnit" />
+      <Field Name="mHealthbar" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.WorldObject">
+    <Position X="4.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACBAoIAIEAQEAAkAAAAAVADICIIAQUIIAgAiQKBAgA=</HashCode>
+      <FileName>GameObjects\WorldObject.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mIdent" />
+      <Field Name="mFraction" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.Zone">
+    <Position X="4.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAQAQAAAAAAAAAEAAAAAAAAIAAEABBAAAiCIAAA=</HashCode>
+      <FileName>GameObjects\Zone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.SpawnZone">
+    <Position X="7.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQACAAAAAAAQAEAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Zone.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="mSpawnJobs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.HomeZone">
+    <Position X="7.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Zone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.GraphicsManager">
+    <Position X="7.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAEAAAQHIQAiQCAAAAAgAASAAICARAAABAKBAIA=</HashCode>
+      <FileName>Graphic\GraphicsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Graphic.MenuElements.Healthbar">
+    <Position X="13.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAWAAAAABgIAABAiCAAAAAAAgAKAEgAAAAAAiAQAEgA=</HashCode>
+      <FileName>Graphic\MenuElements\Healthbar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.AI.Pathfinding.AStarPathfinder">
+    <Position X="0.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgQAAAAAgAAAAADAAABAAAAGAIAAAAAEAIAAAAA=</HashCode>
+      <FileName>AI\Pathfinding\AStarPathfinder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Misc.SelectionHandler">
+    <Position X="2.5" Y="12.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ConversionOfBrutes.Misc.SelectionHandler.SelectionSave" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Misc\SelectionHandler.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>CEAAAAAgACRgAgAQAJAMwAAAEAAAAQCAMAAEAABCAAA=</HashCode>
+      <FileName>Misc\SelectionHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Misc.SpawnJob">
+    <Position X="7.25" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAgEJAAAAgAAAAAAABAEIAAAAACIYCCAQACCEAA=</HashCode>
+      <FileName>Misc\SpawnJob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameLogics.GameLogic">
+    <Position X="0.5" Y="18" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ConversionOfBrutes.GameLogics.GameLogic.GameLogicSavings" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GameLogics\GameLogic.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>CAQAgAAoIAAAhAAwAIABAAICAAAAAgAAgAAAAAAAAAw=</HashCode>
+      <FileName>GameLogics\GameLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.GameObjects.Horse">
+    <Position X="16" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAACAEAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Horse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConversionOfBrutes.Map.MapEditor">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQQECAAICAAAhAAAACCEAAABAAAARAAIgAIAAAAAAA=</HashCode>
+      <FileName>Map\MapEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ConversionOfBrutes.GameObjects.Fraction">
+    <Position X="2.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>GameObjects\WorldObject.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ConversionOfBrutes.GameObjects.Ident">
+    <Position X="4.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIBgAAAAECAQQIAJAAiwAAAAYIAAAQAAqAoAAIAAA=</HashCode>
+      <FileName>GameObjects\WorldObject.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
